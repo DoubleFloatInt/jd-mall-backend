@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+
+mybatis:
+  mapper-locations: classpath*:mybatis/**/*Mapper.XML
+  typeAliasesPackage: cn.doublefloat.jdmall.project.**.domain
+spring:
+  datasource:
+    username: root
+    password: mysql0327LGSsr
+    url: jdbc:mysql://localhost:3306/jd-mall
+    driver-class-name: com.mysql.cj.jdbc.Driver

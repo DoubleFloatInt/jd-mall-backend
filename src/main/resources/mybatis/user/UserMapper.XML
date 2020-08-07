@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="cn.doublefloat.jdmall.project.user.mapper.UserMapper">
+    <resultMap id="UserResult" type="User">
+        <result column="username" property="username"/>
+        <result column="nickname" property="nickname"/>
+        <result column="phonenum" property="phonenum"/>
+        <result column="password" property="password"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+
+    <insert id="add" parameterType="User">
+        INSERT INTO jd_user (username, nickname, phonenum, password)
+        VALUES (#{username}, #{nickname}, #{phonenum}, #{password})
+    </insert>
+</mapper>
