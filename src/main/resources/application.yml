@@ -7,7 +7,7 @@ mybatis:
   typeAliasesPackage: cn.doublefloat.jdmall.project.**.domain
 spring:
   datasource:
-    username: root
-    password: mysql0327LGSsr
-    url: jdbc:mysql://localhost:3306/jd-mall
+    username: jd-mall
+    password: 123456
+    url: jdbc:mysql://cdb-2tt4kxl0.bj.tencentcdb.com:10151/jd-mall
     driver-class-name: com.mysql.cj.jdbc.Driver
