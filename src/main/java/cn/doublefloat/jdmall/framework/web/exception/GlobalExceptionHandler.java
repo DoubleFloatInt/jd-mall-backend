@@ -34,21 +34,6 @@ public class GlobalExceptionHandler {
         return AjaxResult.error(e.getMessage());
     }
 
-    @ExceptionHandler(UserException.class)
-    public AjaxResult userException(UserException e) {
-        return AjaxResult.error(e.getMessage());
-    }
-
-    @ExceptionHandler(CaptchaException.class)
-    public AjaxResult captchaException(CaptchaException e) {
-        return AjaxResult.error(e.getMessage());
-    }
-
-    @ExceptionHandler(CaptchaExpireException.class)
-    public AjaxResult captchaExpireException(CaptchaExpireException e) {
-        return AjaxResult.error(e.getMessage());
-    }
-
     @ExceptionHandler(AccountExpiredException.class)
     public AjaxResult handleAccountExpiredException(AccountExpiredException e)
     {

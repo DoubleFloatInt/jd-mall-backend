@@ -3,6 +3,7 @@ package cn.doublefloat.jdmall.framework.security.service;
 import cn.doublefloat.jdmall.common.constants.Constants;
 import cn.doublefloat.jdmall.common.exception.user.CaptchaException;
 import cn.doublefloat.jdmall.common.exception.user.CaptchaExpireException;
+import cn.doublefloat.jdmall.common.exception.user.UserPasswordNotMatchException;
 import cn.doublefloat.jdmall.common.utils.StringUtils;
 import cn.doublefloat.jdmall.framework.redis.RedisCacheService;
 import cn.doublefloat.jdmall.framework.security.domain.LoginUser;
@@ -32,13 +33,12 @@ public class LoginService {
         String verifyKey = Constants.CAPTCHA_CODE_KEY + uuid;
 
         String captcha = redisCacheService.getCacheObject(verifyKey);
-        redisCacheService.deleteObject(verifyKey);
 
         if (StringUtils.isNull(captcha)) {
             throw new CaptchaExpireException();
         }
 
-        if (!code.equals(captcha)) {
+        if (!code.equalsIgnoreCase(captcha)) {
             throw new CaptchaException();
         }
 
@@ -46,8 +46,10 @@ public class LoginService {
         try {
             authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new UserPasswordNotMatchException();
         }
+
+        redisCacheService.deleteObject(verifyKey);
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         return tokenService.createToken(loginUser);
     }
