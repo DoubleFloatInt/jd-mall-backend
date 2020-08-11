@@ -18,13 +18,13 @@
 
     <sql id="queryProduct">
         SELECT product_id, product_name, product_summary, product_cate, product_price, product_sales_price, product_remain, product_image, create_time
-        FROM jd_product WHERE 1 = 1
+        FROM jd_product WHERE product_status = 0
     </sql>
 
     <select id="queryProductList" resultMap="ProductResult">
         <include refid="queryProduct"/>
         <if test="productName != null and productName != ''">
-            OR product_name LIKE concat('%', #{productName}, '%')
+            AND product_name LIKE concat('%', #{productName}, '%')
         </if>
         <if test="productSummary != null and productSummary != ''">
             OR product_summary LIKE concat('%', #{productSummary}, '%')

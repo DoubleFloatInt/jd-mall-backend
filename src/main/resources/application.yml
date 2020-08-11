@@ -10,6 +10,9 @@ server:
 mybatis:
   mapper-locations: classpath*:mybatis/**/*Mapper.XML
   typeAliasesPackage: cn.doublefloat.jdmall.project.**.domain
+  # spring boot集成mybatis的方式打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 spring:
   messages:
     # 国际化资源文件路径
