@@ -16,4 +16,25 @@ public interface UserService {
      */
     public Integer add(User user);
 
+    /**
+     * 删除用户信息
+     * @param userId 用户ID
+     * @return 结果
+     */
+    public Integer deleteUser(Long userId);
+
+    /**
+     * 更新用户信息
+     * @param user 用户信息
+     * @return 结果
+     */
+    public Integer updateUser(User user);
+
+    /**
+     * 根据用户名查询用户信息
+     * @param username 用户名
+     * @return 用户信息
+     */
+    public User queryUserByUsername(String username);
+
 }

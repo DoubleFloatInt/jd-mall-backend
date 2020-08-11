@@ -17,4 +17,8 @@
         INSERT INTO jd_user (username, nickname, phonenum, password)
         VALUES (#{username}, #{nickname}, #{phonenum}, #{password})
     </insert>
+
+    <select id="queryUserByUsername" resultMap="UserResult">
+        SELECT * FROM jd_user WHERE username = #{username}
+    </select>
 </mapper>

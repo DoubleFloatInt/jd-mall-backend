@@ -29,4 +29,19 @@ public class UserServiceImpl implements UserService {
         user.setCreateTime(new Date());
         return userMapper.add(user);
     }
+
+    @Override
+    public Integer deleteUser(Long userId) {
+        return null;
+    }
+
+    @Override
+    public Integer updateUser(User user) {
+        return null;
+    }
+
+    @Override
+    public User queryUserByUsername(String username) {
+        return userMapper.queryUserByUsername(username);
+    }
 }
