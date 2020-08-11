@@ -1,6 +1,8 @@
 package cn.doublefloat.jdmall.framework.security.service;
 
 import cn.doublefloat.jdmall.common.constants.Constants;
+import cn.doublefloat.jdmall.common.exception.user.CaptchaException;
+import cn.doublefloat.jdmall.common.exception.user.CaptchaExpireException;
 import cn.doublefloat.jdmall.common.utils.StringUtils;
 import cn.doublefloat.jdmall.framework.redis.RedisCacheService;
 import cn.doublefloat.jdmall.framework.security.domain.LoginUser;
@@ -33,11 +35,11 @@ public class LoginService {
         redisCacheService.deleteObject(verifyKey);
 
         if (StringUtils.isNull(captcha)) {
-
+            throw new CaptchaExpireException();
         }
 
         if (!code.equals(captcha)) {
-
+            throw new CaptchaException();
         }
 
         Authentication authentication = null;

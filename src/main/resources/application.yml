@@ -11,11 +11,20 @@ mybatis:
   mapper-locations: classpath*:mybatis/**/*Mapper.XML
   typeAliasesPackage: cn.doublefloat.jdmall.project.**.domain
 spring:
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
   datasource:
     username: jd-mall
     password: 123456
     url: jdbc:mysql://cdb-2tt4kxl0.bj.tencentcdb.com:10151/jd-mall
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # redis 配置
+  redis:
+    # 地址
+    host: localhost
+    # 端口，默认为6379
+    port: 6379
 
 token:
   header: Authorization

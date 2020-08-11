@@ -34,14 +34,7 @@ public class BaseException extends RuntimeException {
 
     @Override
     public String getMessage() {
-        String message = null;
-        if (StringUtils.isEmpty(code)) {
-            message = MessageUtils.message(code, args);
-        }
-
-        if (message == null) {
-            message = defaultMessage;
-        }
+        String message = MessageUtils.message(code, args);
         return message;
     }
 

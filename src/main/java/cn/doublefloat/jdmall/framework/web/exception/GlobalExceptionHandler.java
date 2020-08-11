@@ -1,6 +1,9 @@
 package cn.doublefloat.jdmall.framework.web.exception;
 
 import cn.doublefloat.jdmall.common.exception.BaseException;
+import cn.doublefloat.jdmall.common.exception.user.CaptchaException;
+import cn.doublefloat.jdmall.common.exception.user.CaptchaExpireException;
+import cn.doublefloat.jdmall.common.exception.user.UserException;
 import cn.doublefloat.jdmall.framework.web.domain.AjaxResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +31,21 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BaseException.class)
     public AjaxResult baseException(BaseException e) {
+        return AjaxResult.error(e.getMessage());
+    }
+
+    @ExceptionHandler(UserException.class)
+    public AjaxResult userException(UserException e) {
+        return AjaxResult.error(e.getMessage());
+    }
+
+    @ExceptionHandler(CaptchaException.class)
+    public AjaxResult captchaException(CaptchaException e) {
+        return AjaxResult.error(e.getMessage());
+    }
+
+    @ExceptionHandler(CaptchaExpireException.class)
+    public AjaxResult captchaExpireException(CaptchaExpireException e) {
         return AjaxResult.error(e.getMessage());
     }
 
