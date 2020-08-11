@@ -13,7 +13,7 @@ public class Constants {
 
     public static final String LOGIN_USER_KEY = "login_user_key";
 
-    public static final String TOKEN_PREFIX = "DoubleToken ";
+    public static final String TOKEN_PREFIX = "JD-";
 
     public static final Integer LAF_STATUS_NO = 1;
 
