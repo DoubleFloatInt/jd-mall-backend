@@ -2,7 +2,7 @@ package cn.doublefloat.jdmall.common.constants;
 
 /**
  * @author 李广帅
- * @date 2020/7/19 4:47 下午
+ * @date 2020/8/2 4:47 下午
  */
 public class HttpStatus {
 

@@ -2,7 +2,7 @@ package cn.doublefloat.jdmall.common.constants;
 
 /**
  * @author 李广帅
- * @date 2020/7/21 6:00 下午
+ * @date 2020/8/2 6:00 下午
  */
 public class Constants {
     public static final String CAPTCHA_CODE_KEY = "captcha_codes:";
