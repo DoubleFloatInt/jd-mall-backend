@@ -2,6 +2,7 @@ package cn.doublefloat.jdmall.project.user.controller;
 
 import cn.doublefloat.jdmall.common.constants.Constants;
 import cn.doublefloat.jdmall.common.utils.ServletUtils;
+import cn.doublefloat.jdmall.framework.security.domain.LoginUser;
 import cn.doublefloat.jdmall.framework.security.service.LoginService;
 import cn.doublefloat.jdmall.framework.security.service.TokenService;
 import cn.doublefloat.jdmall.framework.web.domain.AjaxResult;
@@ -33,7 +34,8 @@ public class LoginController {
 
     @PostMapping("/getUserInfo")
     public AjaxResult getUserInfo() {
-        User user = tokenService.getLoginUser(ServletUtils.getRequest()).getUser();
+        LoginUser loginUser = tokenService.getLoginUser(ServletUtils.getRequest());
+        User user = loginUser.getUser();
         return AjaxResult.success(user);
     }
 }

@@ -3,6 +3,7 @@ package cn.doublefloat.jdmall.framework.web.exception;
 import cn.doublefloat.jdmall.common.exception.BaseException;
 import cn.doublefloat.jdmall.common.exception.user.CaptchaException;
 import cn.doublefloat.jdmall.common.exception.user.CaptchaExpireException;
+import cn.doublefloat.jdmall.common.exception.user.LoginExpireException;
 import cn.doublefloat.jdmall.common.exception.user.UserException;
 import cn.doublefloat.jdmall.framework.web.domain.AjaxResult;
 import org.slf4j.Logger;
@@ -34,9 +35,14 @@ public class GlobalExceptionHandler {
         return AjaxResult.error(e.getMessage());
     }
 
+    @ExceptionHandler(LoginExpireException.class)
+    public AjaxResult loginExpireException(LoginExpireException e) {
+        return AjaxResult.error(401, e.getMessage());
+    }
+
     @ExceptionHandler(AccountExpiredException.class)
-    public AjaxResult handleAccountExpiredException(AccountExpiredException e)
-    {
+    public AjaxResult handleAccountExpiredException(AccountExpiredException e) {
+
         log.error(e.getMessage(), e);
         return AjaxResult.error(e.getMessage());
     }

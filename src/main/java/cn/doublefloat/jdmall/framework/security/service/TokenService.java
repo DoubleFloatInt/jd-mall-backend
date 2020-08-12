@@ -1,6 +1,7 @@
 package cn.doublefloat.jdmall.framework.security.service;
 
 import cn.doublefloat.jdmall.common.constants.Constants;
+import cn.doublefloat.jdmall.common.exception.user.LoginExpireException;
 import cn.doublefloat.jdmall.common.utils.StringUtils;
 import cn.doublefloat.jdmall.framework.redis.RedisCacheService;
 import cn.doublefloat.jdmall.framework.security.domain.LoginUser;
@@ -148,15 +149,19 @@ public class TokenService {
      * @param request 请求
      * @return 用户信息
      */
-    public LoginUser getLoginUser(HttpServletRequest request) {
+    public LoginUser getLoginUser(HttpServletRequest request) throws LoginExpireException {
         String token = getToken(request);
+        LoginUser loginUser = null;
         if (StringUtils.isNotNull(token) && StringUtils.isNotEmpty(token)) {
             Claims claims = parseToken(token);
             String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
             String tokenKey = getTokenKey(uuid);
-            return redisCacheService.getCacheObject(tokenKey);
+            loginUser = redisCacheService.getCacheObject(tokenKey);
         }
-        return null;
+        if (loginUser == null) {
+            throw new LoginExpireException();
+        }
+        return loginUser;
     }
 
     /**

@@ -16,6 +16,11 @@ public class UserConstants {
     public static final String USER_DISABLE = "1";
 
     /**
+     * 用户删除状态
+     */
+    public static final String USER_DELETED = "2";
+
+    /**
      * 角色禁用状态
      */
     public static final String ROLE_DISABLE = "1";

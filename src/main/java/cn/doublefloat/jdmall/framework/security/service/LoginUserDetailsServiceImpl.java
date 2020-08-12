@@ -1,5 +1,7 @@
 package cn.doublefloat.jdmall.framework.security.service;
 
+import cn.doublefloat.jdmall.common.constants.UserConstants;
+import cn.doublefloat.jdmall.common.exception.BaseException;
 import cn.doublefloat.jdmall.common.utils.StringUtils;
 import cn.doublefloat.jdmall.framework.security.domain.LoginUser;
 import cn.doublefloat.jdmall.project.user.domain.User;
@@ -24,7 +26,13 @@ public class LoginUserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userService.queryUserByUsername(username);
         if (StringUtils.isNull(user)) {
-            System.out.println("用户不存在!");
+            throw new UsernameNotFoundException("登录用户：" + username + " 不存在");
+        }
+        else if (UserConstants.USER_DELETED.equals(user.getStatus())) {
+            throw new BaseException("对不起，您的账号：" + username + " 已被删除");
+        }
+        else if (UserConstants.USER_DISABLE.equals(user.getStatus())) {
+            throw new BaseException("对不起，您的账号：" + username + " 已停用");
         }
         return createUserDetails(user);
     }
