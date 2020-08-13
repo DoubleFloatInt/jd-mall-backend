@@ -5,8 +5,29 @@
  
 <mapper namespace="cn.doublefloat.jdmall.project.address.mapper.AddressMapper">
 
+
     <insert id="add" parameterType="Address">
         INSERT INTO jd_address (user_id, realname, phonenum, province, city, area, street, zip, is_default_address, create_time)
         VALUES (#{userId}, #{realName}, #{phonenum}, #{province}, #{city}, #{area}, #{street}, #{zip}, #{isDefaultAddress}, #{createTime})
     </insert>
+
+    <delete id="del" parameterType="Address">
+        delete from jd_address where address_id=#{addressId}
+    </delete>
+
+    <update id="modify" parameterType="Address">
+        update jd_address set user_id=#{userId} realname=#{realName} phonenum=#{phonenum} province=#{province} city=#{city}
+        area=#{area} street=#{street} zip=#{zip} is_default_address=#{isDefaultAddress} create_time=#{createTime}
+        where address_id=#{addressId}
+    </update>
+
+    <select id="select_one" parameterType="Address">
+        select user_id=#{userId} realname=#{realName} phonenum=#{phonenum} province=#{province} city=#{city}
+        area=#{area} street=#{street} zip=#{zip} is_default_address=#{isDefaultAddress} create_time=#{createTime}
+        from jd_address
+    </select>
+    
+    <select id="select_all" parameterType="Address">
+        select * from jd_address
+    </select>
 </mapper>

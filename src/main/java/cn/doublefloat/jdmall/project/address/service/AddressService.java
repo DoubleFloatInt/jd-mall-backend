@@ -1,6 +1,7 @@
 package cn.doublefloat.jdmall.project.address.service;
 
 import cn.doublefloat.jdmall.project.address.domain.Address;
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,4 +17,32 @@ public interface AddressService {
      * @return 结果
      */
     public Integer addAddress(Address address);
+
+    /**
+     * 删除地址信息
+     * @param address  地址信息
+     * @return  结果
+     */
+    public Integer delAddress(Address address);
+
+    /**
+     * 修改地址信息
+     * @param address
+     * @return
+     */
+    public Integer modifyAddress(Address address);
+
+    /**
+     * 查找一个地址信息
+     * @param address
+     * @return
+     */
+    public  Integer select_oneAddress(Address address);
+
+    /**
+     * 查找所有地址信息
+     * @param address
+     * @return
+     */
+    public Integer select_allAddress(Address address);
 }
