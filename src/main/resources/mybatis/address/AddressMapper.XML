@@ -5,7 +5,6 @@
  
 <mapper namespace="cn.doublefloat.jdmall.project.address.mapper.AddressMapper">
 
-
     <insert id="add" parameterType="Address">
         INSERT INTO jd_address (user_id, realname, phonenum, province, city, area, street, zip, is_default_address, create_time)
         VALUES (#{userId}, #{realName}, #{phonenum}, #{province}, #{city}, #{area}, #{street}, #{zip}, #{isDefaultAddress}, #{createTime})
