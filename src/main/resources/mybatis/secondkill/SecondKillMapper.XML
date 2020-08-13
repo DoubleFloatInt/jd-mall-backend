@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.doublefloat.jdmall.project.secondkill.mapper.SecondMapper">
+    <resultMap id="SecondKillResult" type="SecondKill">
+        <id column="product_id" property="productId"/>
+        <result column="product_name" property="productName"/>
+        <result column="product_summary" property="productSummary"/>
+        <result column="product_cate" property="cateId"/>
+        <result column="product_price" property="price"/>
+        <result column="product_sales_price" property="salesPrice"/>
+        <result column="product_remain" property="remain"/>
+        <result column="product_image" property="image"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <select id="querySecondKillList" resultMap="SecondKillResult">
+        SELECT
+            product_id,
+            product_name,
+            product_summary,
+            product_cate,
+            product_price,
+            product_sales_price,
+            product_remain,
+            product_image,
+            create_time
+        FROM
+            jd_product
+        WHERE
+            product_sales_price !=product_price
+        ORDER BY
+            RAND()
+            LIMIT 100
+    </select>
+</mapper>
