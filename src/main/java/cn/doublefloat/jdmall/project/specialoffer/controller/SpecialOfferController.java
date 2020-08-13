@@ -2,8 +2,8 @@ package cn.doublefloat.jdmall.project.specialoffer.controller;
 
 import cn.doublefloat.jdmall.framework.web.page.TableDataResult;
 import cn.doublefloat.jdmall.project.specialoffer.domain.SpecialOffer;
-import cn.doublefloat.jdmall.project.specialoffer.mapper.SpecialOfferService;
 import cn.doublefloat.jdmall.framework.web.controller.BaseController;
+import cn.doublefloat.jdmall.project.specialoffer.service.SpecialOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

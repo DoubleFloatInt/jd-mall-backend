@@ -1,10 +1,8 @@
 package cn.doublefloat.jdmall.project.specialoffer.service.impl;
 
-import cn.doublefloat.jdmall.project.product.domain.Product;
-import cn.doublefloat.jdmall.project.product.mapper.ProductMapper;
 import cn.doublefloat.jdmall.project.specialoffer.domain.SpecialOffer;
 import cn.doublefloat.jdmall.project.specialoffer.mapper.SpecialOfferMapper;
-import cn.doublefloat.jdmall.project.specialoffer.mapper.SpecialOfferService;
+import cn.doublefloat.jdmall.project.specialoffer.service.SpecialOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

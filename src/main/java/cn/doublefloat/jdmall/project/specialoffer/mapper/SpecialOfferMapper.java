@@ -28,5 +28,6 @@ public interface SpecialOfferMapper {
      * @param id 商品编号
      * @return 商品信息
      */
+
     public List<SpecialOffer> query9_9ProductList(SpecialOffer product);
 }

@@ -1,4 +1,4 @@
-package cn.doublefloat.jdmall.project.specialoffer.mapper;
+package cn.doublefloat.jdmall.project.specialoffer.service;
 
 import cn.doublefloat.jdmall.project.product.domain.Product;
 import cn.doublefloat.jdmall.project.specialoffer.domain.SpecialOffer;

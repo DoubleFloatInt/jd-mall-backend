@@ -50,10 +50,10 @@
         FROM
             jd_product
         WHERE
-            product_sales_price !=product_price
+            <![CDATA[product_sales_price <9.90]]>
         ORDER BY
             RAND()
-            LIMIT 100
+            LIMIT 4
     </select>
 
 <!--    <select id="querySpecialProductList" resultMap="SpecialOfferResult">-->
