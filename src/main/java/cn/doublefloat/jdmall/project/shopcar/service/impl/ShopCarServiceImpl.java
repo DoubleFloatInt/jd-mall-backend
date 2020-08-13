@@ -6,7 +6,6 @@ import cn.doublefloat.jdmall.project.shopcar.mapper.ShopCarMapper;
 import cn.doublefloat.jdmall.project.shopcar.service.ShopCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**

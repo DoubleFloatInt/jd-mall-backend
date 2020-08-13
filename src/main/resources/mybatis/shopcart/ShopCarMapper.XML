@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="cn.doublefloat.jdmall.project.shopcar.mapper.ShopCarMapper">
 
     <resultMap id="ShopCarPoResult" type="ShopCarPO">
@@ -46,7 +46,7 @@
         WHERE s.user_id = #{userId}
     </select>
 
-    <select id="checkShopCarItemUnique" resultType="Integer">
+    <select id="checkShopCarItemUnique" resultMap="ShopCarPoResult">
         SELECT * FROM jd_shopcar WHERE user_id = #{userId} AND product_id = #{productId};
     </select>
 </mapper>

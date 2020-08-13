@@ -1,5 +1,6 @@
 package cn.doublefloat.jdmall.project.shopcar.service;
 
+import cn.doublefloat.jdmall.project.shopcar.domain.ShopCar;
 import cn.doublefloat.jdmall.project.shopcar.domain.po.ShopCarPO;
 
 import java.util.List;

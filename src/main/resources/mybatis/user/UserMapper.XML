@@ -2,9 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="cn.doublefloat.jdmall.project.user.mapper.UserMapper">
     <resultMap id="UserResult" type="User">
+        <result column="user_id" property="userId"/>
         <result column="username" property="username"/>
         <result column="nickname" property="nickname"/>
         <result column="phonenum" property="phonenum"/>
