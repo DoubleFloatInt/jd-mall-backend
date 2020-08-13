@@ -24,4 +24,24 @@ public class AddressController extends BaseController {
     public AjaxResult addAddress(Address address) {
         return toAjax(addressService.addAddress(address));
     }
+
+    @PostMapping("/del")
+    public AjaxResult delAddress(Address address){
+        return  toAjax(addressService.delAddress(address));
+    }
+
+    @PostMapping("/modify")
+    public AjaxResult modify(Address address){
+        return toAjax(addressService.modifyAddress(address));
+    }
+
+    @PostMapping("/select_one")
+    public AjaxResult select_one(Address address){
+        return toAjax(addressService.select_oneAddress(address));
+    }
+
+    @PostMapping("/select_all")
+    public AjaxResult select_all(Address address){
+        return  toAjax(addressService.select_allAddress(address));
+    }
 }
