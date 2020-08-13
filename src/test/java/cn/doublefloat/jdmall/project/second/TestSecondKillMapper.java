@@ -1,4 +1,4 @@
-package cn.doublefloat.jdmall.second.mapper;
+package cn.doublefloat.jdmall.project.second;
 
 import cn.doublefloat.jdmall.project.secondkill.domain.SecondKill;
 import cn.doublefloat.jdmall.project.secondkill.mapper.SecondMapper;

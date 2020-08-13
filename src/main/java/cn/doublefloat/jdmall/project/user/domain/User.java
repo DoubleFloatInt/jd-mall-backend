@@ -50,6 +50,17 @@ public class User extends BaseEntity {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", phonenum='" + phonenum + '\'' +
+                ", password='" + password + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 
     public Long getUserId() {
         return userId;
