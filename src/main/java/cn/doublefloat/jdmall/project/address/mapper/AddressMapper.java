@@ -3,6 +3,8 @@ package cn.doublefloat.jdmall.project.address.mapper;
 import cn.doublefloat.jdmall.project.address.domain.Address;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author 江瀚文
  * @date 2020/8/12 1:58 下午
@@ -36,12 +38,12 @@ public interface AddressMapper {
      * @param address
      * @return
      */
-    public  Integer select_one(Address address);
+    public  Address select_one(Address address);
 
     /**
      * 查找所有地址信息
      * @param address
      * @return
      */
-    public Integer select_all(Address address);
+    public List<Address> select_all(Address address);
 }

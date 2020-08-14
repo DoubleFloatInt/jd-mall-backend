@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="cn.doublefloat.jdmall.project.order.mapper.OrderMapper">
-    <insert id="addOrder" parameterType="Order" keyProperty="order_id">
-        INSERT INTO jd_order (order_no, user_id, product_count, product_amount, order_amount_total, address_id, create_time)
+    <insert id="addOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
+        INSERT INTO jd_order (order_no, user_id, product_count, product_amount_total, order_amount_total, address_id, create_time)
         VALUES (#{orderNo}, #{userId}, #{productCount}, #{productAmount}, #{orderAmountTotal}, #{addressId}, #{createTime})
     </insert>
 

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author 江瀚文
@@ -55,7 +56,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public Integer select_oneAddress(Address address){
+    public Address select_oneAddress(Address address){
         address.setUserId(tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId());
         address.setCreateTime(new Date());
         if (StringUtils.isNull(address.getDefaultAddress())) {
@@ -65,12 +66,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public Integer select_allAddress(Address address){
+    public List<Address> select_allAddress(Address address){
         address.setUserId(tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId());
-        address.setCreateTime(new Date());
-        if (StringUtils.isNull(address.getDefaultAddress())) {
-            address.setDefaultAddress(false);
-        }
         return addressMapper.select_all(address);
     }
 }

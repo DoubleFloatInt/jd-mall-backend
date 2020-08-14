@@ -2,6 +2,7 @@ package cn.doublefloat.jdmall.project.address.controller;
 
 import cn.doublefloat.jdmall.framework.web.controller.BaseController;
 import cn.doublefloat.jdmall.framework.web.domain.AjaxResult;
+import cn.doublefloat.jdmall.framework.web.page.TableDataResult;
 import cn.doublefloat.jdmall.project.address.domain.Address;
 import cn.doublefloat.jdmall.project.address.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,13 @@ public class AddressController extends BaseController {
         return toAjax(addressService.modifyAddress(address));
     }
 
-    @PostMapping("/select_one")
-    public AjaxResult select_one(Address address){
-        return toAjax(addressService.select_oneAddress(address));
+    @PostMapping("/selectOne")
+    public AjaxResult selectOne(Address address){
+        return AjaxResult.success(addressService.select_oneAddress(address));
     }
 
-    @PostMapping("/select_all")
-    public AjaxResult select_all(Address address){
-        return  toAjax(addressService.select_allAddress(address));
+    @PostMapping("/userAddress")
+    public TableDataResult selectAll(Address address){
+        return getTableData(addressService.select_allAddress(address));
     }
 }

@@ -5,6 +5,20 @@
  
 <mapper namespace="cn.doublefloat.jdmall.project.address.mapper.AddressMapper">
 
+    <resultMap id="AddressResult" type="Address">
+        <id column="address_id" property="addressId"/>
+        <result column="user_id" property="userId"/>
+        <result column="realname" property="realName"/>
+        <result column="phonenum" property="phonenum"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="area" property="area"/>
+        <result column="street" property="street"/>
+        <result column="zip" property="zip"/>
+        <result column="is_default_address" property="isDefaultAddress"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
 
     <insert id="add" parameterType="Address">
         INSERT INTO jd_address (user_id, realname, phonenum, province, city, area, street, zip, is_default_address, create_time)
@@ -21,13 +35,14 @@
         where address_id=#{addressId}
     </update>
 
-    <select id="select_one" parameterType="Address">
+    <select id="select_one" parameterType="Address" resultMap="AddressResult">
         select user_id=#{userId} realname=#{realName} phonenum=#{phonenum} province=#{province} city=#{city}
         area=#{area} street=#{street} zip=#{zip} is_default_address=#{isDefaultAddress} create_time=#{createTime}
         from jd_address
+        WHERE user_id = #{userId} AND address_id = #{addressId}
     </select>
     
-    <select id="select_all" parameterType="Address">
-        select * from jd_address
+    <select id="select_all" parameterType="Address" resultMap="AddressResult">
+        select * from jd_address WHERE user_id = #{userId}
     </select>
 </mapper>
