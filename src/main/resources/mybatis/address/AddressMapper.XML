@@ -16,7 +16,6 @@
         <result column="street" property="street"/>
         <result column="zip" property="zip"/>
         <result column="is_default_address" property="isDefaultAddress"/>
-        <result column="create_time" property="createTime"/>
     </resultMap>
 
 
@@ -30,16 +29,15 @@
     </delete>
 
     <update id="modify" parameterType="Address">
-        update jd_address set user_id=#{userId} realname=#{realName} phonenum=#{phonenum} province=#{province} city=#{city}
-        area=#{area} street=#{street} zip=#{zip} is_default_address=#{isDefaultAddress} create_time=#{createTime}
+        update jd_address set user_id=#{userId}, realname=#{realName}, phonenum=#{phonenum}, province=#{province}, city=#{city},
+        area=#{area}, street=#{street}, zip=#{zip}, is_default_address=#{isDefaultAddress}
         where address_id=#{addressId}
     </update>
 
     <select id="select_one" parameterType="Address" resultMap="AddressResult">
-        select user_id=#{userId} realname=#{realName} phonenum=#{phonenum} province=#{province} city=#{city}
-        area=#{area} street=#{street} zip=#{zip} is_default_address=#{isDefaultAddress} create_time=#{createTime}
+        select *
         from jd_address
-        WHERE user_id = #{userId} AND address_id = #{addressId}
+        WHERE address_id = #{addressId}
     </select>
     
     <select id="select_all" parameterType="Address" resultMap="AddressResult">

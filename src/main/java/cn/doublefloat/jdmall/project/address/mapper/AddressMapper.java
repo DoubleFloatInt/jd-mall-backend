@@ -35,10 +35,10 @@ public interface AddressMapper {
 
     /**
      * 查找一个地址信息
-     * @param address
+     * @param addressId
      * @return
      */
-    public  Address select_one(Address address);
+    public  Address select_one(Long addressId);
 
     /**
      * 查找所有地址信息

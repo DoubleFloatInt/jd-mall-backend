@@ -6,6 +6,7 @@ import cn.doublefloat.jdmall.framework.web.page.TableDataResult;
 import cn.doublefloat.jdmall.project.address.domain.Address;
 import cn.doublefloat.jdmall.project.address.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,9 +37,9 @@ public class AddressController extends BaseController {
         return toAjax(addressService.modifyAddress(address));
     }
 
-    @PostMapping("/selectOne")
-    public AjaxResult selectOne(Address address){
-        return AjaxResult.success(addressService.select_oneAddress(address));
+    @PostMapping("/info/{addressId}")
+    public AjaxResult selectOne(@PathVariable Long addressId){
+        return AjaxResult.success(addressService.select_oneAddress(addressId));
     }
 
     @PostMapping("/userAddress")

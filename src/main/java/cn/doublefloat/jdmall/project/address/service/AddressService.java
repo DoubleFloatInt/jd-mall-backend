@@ -37,7 +37,7 @@ public interface AddressService {
      * @param address
      * @return
      */
-    public  Address select_oneAddress(Address address);
+    public  Address select_oneAddress(Long addressId);
 
     /**
      * 查找所有地址信息

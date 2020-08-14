@@ -37,32 +37,18 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public Integer delAddress(Address address) {
-        address.setUserId(tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId());
-        address.setCreateTime(new Date());
-        if (StringUtils.isNull(address.getDefaultAddress())) {
-            address.setDefaultAddress(false);
-        }
         return addressMapper.del(address);
     }
 
     @Override
     public Integer modifyAddress(Address address){
         address.setUserId(tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId());
-        address.setCreateTime(new Date());
-        if (StringUtils.isNull(address.getDefaultAddress())) {
-            address.setDefaultAddress(false);
-        }
         return addressMapper.modify(address);
     }
 
     @Override
-    public Address select_oneAddress(Address address){
-        address.setUserId(tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId());
-        address.setCreateTime(new Date());
-        if (StringUtils.isNull(address.getDefaultAddress())) {
-            address.setDefaultAddress(false);
-        }
-        return addressMapper.select_one(address);
+    public Address select_oneAddress(Long addressId){
+        return addressMapper.select_one(addressId);
     }
 
     @Override
