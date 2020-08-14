@@ -65,4 +65,11 @@ public class ShopCarController extends BaseController {
         List<ShopCarPO> list = shopCarService.queryShopCarByUserId(userId);
         return getTableData(list);
     }
+
+    @PostMapping("/listByIds")
+    public TableDataResult listByIds(@RequestBody String[] productIds) {
+        Long userId = tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId();
+        List<ShopCarPO> list = shopCarService.queryShopCarByUserIdAndProductIds(userId, productIds);
+        return getTableData(list);
+    }
 }

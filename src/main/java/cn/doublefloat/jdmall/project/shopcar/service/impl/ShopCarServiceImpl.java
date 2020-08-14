@@ -52,4 +52,10 @@ public class ShopCarServiceImpl implements ShopCarService {
     public List<ShopCarPO> queryShopCarByUserId(Long userId) {
         return shopCarMapper.queryShopCarByUserId(userId);
     }
+
+    @Override
+    public List<ShopCarPO> queryShopCarByUserIdAndProductIds(Long userId, String[] productIds) {
+        return shopCarMapper.queryShopCarByUserIdAndProductIds(userId, productIds);
+    }
+
 }

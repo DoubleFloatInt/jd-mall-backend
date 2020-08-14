@@ -64,6 +64,15 @@ public interface ShopCarMapper {
     public List<ShopCarPO> queryShopCarByUserId(Long userId);
 
     /**
+     * 根据用户和商品编号查询购物车信息
+     *
+     * @param userId     用户编号
+     * @param productIds 商品编号
+     * @return 结果
+     */
+    public List<ShopCarPO> queryShopCarByUserIdAndProductIds(@Param("userId") Long userId, @Param("productIds") String[] productIds);
+
+    /**
      * 检查购物车商品数量
      *
      * @param userId    用户编号

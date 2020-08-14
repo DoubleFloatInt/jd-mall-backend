@@ -60,4 +60,12 @@ public interface ShopCarService {
      * @return 结果
      */
     public List<ShopCarPO> queryShopCarByUserId(Long userId);
+
+    /**
+     * 根据用户和商品信息查询商品信息
+     * @param userId 用户编号
+     * @param productIds 商品编号
+     * @return 结果
+     */
+    public List<ShopCarPO> queryShopCarByUserIdAndProductIds(Long userId, String[] productIds);
 }

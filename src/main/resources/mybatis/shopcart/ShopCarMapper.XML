@@ -46,6 +46,18 @@
         WHERE s.user_id = #{userId}
     </select>
 
+    <select id="queryShopCarByUserIdAndProductIds" resultMap="ShopCarPoResult">
+        SELECT s.id, s.user_id, s.product_id, p.product_name, p.product_price, p.product_image, s.quantity
+        FROM jd_shopcar s
+        LEFT JOIN jd_product p ON s.product_id = p.product_id
+        WHERE
+        s.user_id = #{userId}
+        AND s.product_id IN
+        <foreach collection="productIds" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
     <select id="checkShopCarItemUnique" resultMap="ShopCarPoResult">
         SELECT * FROM jd_shopcar WHERE user_id = #{userId} AND product_id = #{productId};
     </select>
