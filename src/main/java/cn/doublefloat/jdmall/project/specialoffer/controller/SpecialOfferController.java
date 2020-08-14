@@ -14,10 +14,10 @@ import java.util.List;
 
 
 /**
- * \* Created with IntelliJ IDEA.
- * \* 14733 2020/8/13 21:27
- * \* Description:
- * \
+ * @author 牛生辉
+ * @version 1.0
+ * @date 2020/8/12 17:27
+ * @other
  */
 @RestController
 @RequestMapping("/specialoffer")

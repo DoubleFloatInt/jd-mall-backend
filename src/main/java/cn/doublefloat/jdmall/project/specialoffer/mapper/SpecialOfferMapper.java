@@ -25,7 +25,7 @@ public interface SpecialOfferMapper {
     /**
      * 查询所有低于9.9元商品列表
      *
-     * @param id 商品编号
+     * @param product 商品编号
      * @return 商品信息
      */
 
