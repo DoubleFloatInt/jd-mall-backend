@@ -1,5 +1,8 @@
 package cn.doublefloat.jdmall.common.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -25,4 +28,18 @@ public class IdUtils {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
+
+    /**
+     * 生成订单编号
+     *
+     * @return 订单编号
+     */
+    public static String orderNo() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        int x;
+        Random ne = new Random();
+        x = ne.nextInt(9999 - 1000 + 1) + 1000;
+        return dateFormat.format(date) + x;
+    }
 }

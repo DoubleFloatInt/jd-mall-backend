@@ -3,7 +3,7 @@ package cn.doublefloat.jdmall.project.address.domain;
 import cn.doublefloat.jdmall.framework.web.domain.BaseEntity;
 
 /**
- * @author 李广帅
+ * @author 江瀚文
  * @date 2020/8/12 1:44 下午
  */
 public class Address extends BaseEntity {

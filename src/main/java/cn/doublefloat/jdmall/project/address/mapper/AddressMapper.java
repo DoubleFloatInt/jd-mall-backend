@@ -4,7 +4,7 @@ import cn.doublefloat.jdmall.project.address.domain.Address;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author 李广帅
+ * @author 江瀚文
  * @date 2020/8/12 1:58 下午
  */
 @Repository
