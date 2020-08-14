@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="cn.doublefloat.jdmall.project.order.mapper.OrderMapper">
 
     <resultMap id="OrderResult" type="Order">
@@ -40,10 +40,11 @@
     </insert>
 
     <select id="getOrderList" resultMap="OrderResult">
-        SELECT o.order_id, o.order_no, o.user_id, o.status, o.product_count, o.product_amount_total, o.order_amount_total, a.address_id, a.realname, o.create_time
+        SELECT o.order_id, o.order_no, o.user_id, o.status, o.product_count, o.product_amount_total,
+        o.order_amount_total, a.address_id, a.realname, o.create_time
         FROM jd_order o
         LEFT JOIN jd_address a ON a.address_id = o.address_id
-        WHERE status != '5'
+        WHERE o.status != '5' AND o.user_id = #{userId}
         <if test="status != null and status != ''">
             AND o.status = #{status}
         </if>
