@@ -34,7 +34,7 @@ public class OrderPO {
     /**
      * 商品数量
      */
-    private Integer number;
+    private Integer quantity;
 
     /**
      * 小记金额
@@ -49,13 +49,13 @@ public class OrderPO {
     public OrderPO() {
     }
 
-    public OrderPO(Long id, Long orderId, String productId, String productName, Double productPrice, Integer number, Double subTotal, String remark) {
+    public OrderPO(Long id, Long orderId, String productId, String productName, Double productPrice, Integer quantity, Double subTotal, String remark) {
         this.id = id;
         this.orderId = orderId;
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
-        this.number = number;
+        this.quantity = quantity;
         this.subTotal = subTotal;
         this.remark = remark;
     }
@@ -68,7 +68,7 @@ public class OrderPO {
                 ", productId='" + productId + '\'' +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
-                ", number=" + number +
+                ", number=" + quantity +
                 ", subTotal=" + subTotal +
                 ", remark='" + remark + '\'' +
                 '}';
@@ -114,12 +114,12 @@ public class OrderPO {
         this.productPrice = productPrice;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public Double getSubTotal() {

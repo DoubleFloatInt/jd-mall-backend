@@ -36,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.addOrder(order);
         for (OrderPO orderPO : order.getProductList()) {
             orderPO.setOrderId(order.getOrderId());
+            orderPO.setSubTotal(orderPO.getProductPrice() * orderPO.getQuantity());
             result += orderMapper.addOrderDetail(orderPO);
         }
         return result;

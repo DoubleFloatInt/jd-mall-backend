@@ -10,7 +10,7 @@
     </insert>
 
     <insert id="addOrderDetail" parameterType="OrderPO">
-        INSERT INTO jd_order_detail (order_id, product_id, product_name, product_price, number, sub_total)
-        VALUES (#{orderId}, #{productId}, #{productName}, #{productPrice}, #{number}, #{subTotal})
+        INSERT INTO jd_order_detail (order_id, product_id, product_name, product_price, quantity, sub_total)
+        VALUES (#{orderId}, #{productId}, #{productName}, #{productPrice}, #{quantity}, #{subTotal})
     </insert>
 </mapper>
