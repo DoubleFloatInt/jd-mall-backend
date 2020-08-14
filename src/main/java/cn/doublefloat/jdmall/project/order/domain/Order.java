@@ -52,6 +52,11 @@ public class Order extends BaseEntity {
     private Long addressId;
 
     /**
+     * 收货人姓名
+     */
+    private String realName;
+
+    /**
      * 商品列表
      */
     private List<OrderPO> productList;
@@ -59,7 +64,7 @@ public class Order extends BaseEntity {
     public Order() {
     }
 
-    public Order(Long orderId, String orderNo, Long userId, String status, Integer productCount, Double productAmount, Double orderAmountTotal, Long addressId, List<OrderPO> productList) {
+    public Order(Long orderId, String orderNo, Long userId, String status, Integer productCount, Double productAmount, Double orderAmountTotal, Long addressId, String realName, List<OrderPO> productList) {
         this.orderId = orderId;
         this.orderNo = orderNo;
         this.userId = userId;
@@ -68,6 +73,7 @@ public class Order extends BaseEntity {
         this.productAmount = productAmount;
         this.orderAmountTotal = orderAmountTotal;
         this.addressId = addressId;
+        this.realName = realName;
         this.productList = productList;
     }
 
@@ -82,6 +88,7 @@ public class Order extends BaseEntity {
                 ", productAmount=" + productAmount +
                 ", orderAmountTotal=" + orderAmountTotal +
                 ", addressId=" + addressId +
+                ", realName='" + realName + '\'' +
                 ", productList=" + productList +
                 '}';
     }
@@ -148,6 +155,14 @@ public class Order extends BaseEntity {
 
     public void setAddressId(Long addressId) {
         this.addressId = addressId;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public List<OrderPO> getProductList() {

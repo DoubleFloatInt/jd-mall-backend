@@ -8,6 +8,8 @@ import cn.doublefloat.jdmall.project.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author 李广帅
  * @date 2020/8/13 10:52 下午
@@ -30,9 +32,9 @@ public class OrderController extends BaseController {
         return toAjax(orderService.addOrder(order));
     }
 
-    @DeleteMapping("/delete")
-    public AjaxResult deleteOrder(Long orderId) {
-        return null;
+    @DeleteMapping("/delete/{orderId}")
+    public AjaxResult deleteOrder(@PathVariable Long orderId) {
+        return toAjax(orderService.deleteOrder(orderId));
     }
 
     /**
@@ -42,6 +44,7 @@ public class OrderController extends BaseController {
      */
     @PostMapping("/list")
     public TableDataResult orderList( Order order) {
-        return null;
+        List<Order> list = orderService.orderList(order);
+        return getTableData(list);
     }
 }

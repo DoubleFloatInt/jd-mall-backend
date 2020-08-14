@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author 李广帅
@@ -40,5 +41,22 @@ public class OrderServiceImpl implements OrderService {
             result += orderMapper.addOrderDetail(orderPO);
         }
         return result;
+    }
+
+    @Override
+    public List<Order> orderList(Order order) {
+        Long userId = tokenService.getLoginUser(ServletUtils.getRequest()).getUser().getUserId();
+        order.setUserId(userId);
+        List<Order> orderList = orderMapper.getOrderList(order);
+        for (Order order1 : orderList) {
+            List<OrderPO> orderDetailList = orderMapper.getOrderDetailList(order1.getOrderId());
+            order1.setProductList(orderDetailList);
+        }
+        return orderList;
+    }
+
+    @Override
+    public Integer deleteOrder(Long orderId) {
+        return orderMapper.deleteOrder(orderId);
     }
 }
